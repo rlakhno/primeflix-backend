@@ -1,0 +1,10 @@
+Coffee: price_1PX6XL1PxLOehmUImH80IHbR
+Sunglasses: price_1PX6mJ1PxLOehmUIbX85yFVG
+Camera: price_1PX6np1PxLOehmUI1bbQrTaZ 
+Popcorn: price_1Pb4SL1PxLOehmUIFWRmMWKn
+
+new staff
+
+Coffee: prod_QNsHmtPoAZ6dqH
+Sunglasses: prod_QNsXLnTHRNGzGf
+Camera: prod_QNsYP7fW80N5Vy

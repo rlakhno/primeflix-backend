@@ -50,6 +50,10 @@ app.get('/logout', (req, res) => {
   res.send('Logged out');
 });
 
+app.get('/', (req, res) => {
+  res.send('🚀 PrimeFlix Backend is running on Railway!');
+});
+
 
 
 // Signup endpoint
