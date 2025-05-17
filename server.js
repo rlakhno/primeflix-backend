@@ -15,7 +15,7 @@ const cookieSession = require('cookie-session');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
@@ -271,7 +271,7 @@ app.get('/api/products', async (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port: ${PORT}`);
 });
 
 
