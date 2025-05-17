@@ -78,7 +78,7 @@ app.post('/signup', async (req, res) => {
 });
 
 //  Home endpoint - Email session validation on home page
-app.get('/', (req, res) => {
+app.get('/validate-session', (req, res) => {
   req.session.user
     ? res.json({ valid: true, username: req.session.user.email })
     : res.json({ valid: false })
