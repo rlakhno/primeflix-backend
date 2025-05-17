@@ -268,6 +268,7 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
+console.log('About to start server...');
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
