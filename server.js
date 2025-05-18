@@ -15,7 +15,7 @@ const cookieSession = require('cookie-session');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 
 // Middleware
 app.use(cors({
