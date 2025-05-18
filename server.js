@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const pool = require('./db/pool');
-const session = require('express-session');
+// const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const axios = require('axios');
 const cookieSession = require('cookie-session');
@@ -147,8 +147,8 @@ app.get('/api/:id/subscription', async(req, res) => {
   const queryText = 'SELECT subscribed FROM users WHERE id = $1';
   const result = await pool.query(queryText, [userId]);
   console.log("result: ", result);
-  if(result.rowCount.length === 0) {
-    return res.status(400).json({ error: 'Invalid user ID ⛔' });
+  if(result.rowCount === 0) {
+    return res.status(404).json({ error: 'No purchases found for this user ⛔' });
   }
   res.json({response: result.rows});
 })
@@ -166,7 +166,7 @@ app.put('/api/subscription/:userId', async(req, res) => {
   const queryText = 'UPDATE users SET subscribed = $1 WHERE id = $2';
   const result = await pool.query(queryText, [subscribed, userId]);
   console.log("result: ", result);
-  if(result.rowCount.length === 0) {
+  if(result.rowCount === 0) {
     return res.status(500).json({error: 'Did not get response from Database ⛔'})
   }
   res.json({response: result.rows})
@@ -181,7 +181,7 @@ app.post('/api/profile', async (req, res) => {
   
   const result = await pool.query(queryText, [userId]);
   // console.log("result: ", result);
-  if(result.rowCount.length === 0) {
+  if(result.rowCount === 0) {
     return res.status(500).json({error: 'Did not get response from Database ⛔'})
   }
   res.json({response: result.rows})
