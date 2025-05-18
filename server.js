@@ -16,11 +16,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 
-const PORT = process.env.PORT;
-if (!PORT) {
-  console.error('❌ Error: PORT environment variable is not set!');
-  process.exit(1);
-}
+const port = process.env.PORT || 8080;
 
 
 // Middleware
@@ -277,11 +273,11 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
-console.log(`✅ About to listen on port: ${PORT}`);
+console.log(`✅ About to listen on port: ${port}`);
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`✅ Server is listening on Railway's assigned port: ${PORT}`);
+app.listen(port, () => {
+  console.log(`✅ Server is listening on Railway's assigned port: ${port}`);
 });
 
 
