@@ -11,4 +11,13 @@ const pool = new Pool({
   },
 });
 
+// Test DB connection on startup
+pool.query('SELECT NOW()', (err, res) => {
+  if (err) {
+    console.error('DB connection test error:', err);
+  } else {
+    console.log('DB connection test successful:', res.rows[0]);
+  }
+});
+
 module.exports = pool;
