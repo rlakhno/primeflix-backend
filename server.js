@@ -15,6 +15,11 @@ const cookieSession = require('cookie-session');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
+
+if (!process.env.PORT) {
+  console.error('❌ Error: PORT environment variable is not set!');
+  process.exit(1);
+}
 const PORT = process.env.PORT;
 
 // Middleware
@@ -268,7 +273,8 @@ app.get('/api/products', async (req, res) => {
   }
 });
 
-console.log('About to start server...');
+console.log(`✅ About to listen on port: ${PORT}`);
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
